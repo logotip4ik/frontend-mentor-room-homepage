@@ -1,0 +1,8 @@
+{
+  "mount": {
+    "dist": "/",
+    "src": "/"
+  },
+  "plugins": [["@snowpack/plugin-postcss"]],
+  "devOptions": { "open": "none", "port": 3000 }
+}
