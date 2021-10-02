@@ -46,6 +46,10 @@
       height: 100%;
       overflow: hidden;
 
+      &__wrapper {
+        height: 100%;
+      }
+
       &__slide {
         display: block;
 
