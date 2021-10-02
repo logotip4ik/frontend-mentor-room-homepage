@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  min-height: 100vh;
+  background-color: var(--primary-white);
+  font-size: 12px;
+  font-family: 'Spartan', sans-serif;
+}

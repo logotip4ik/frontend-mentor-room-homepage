@@ -3,6 +3,6 @@
     "dist": "/",
     "src": "/"
   },
-  "plugins": [["@snowpack/plugin-postcss"]],
+  "plugins": [["@snowpack/plugin-sass"]],
   "devOptions": { "open": "none", "port": 3000 }
 }
