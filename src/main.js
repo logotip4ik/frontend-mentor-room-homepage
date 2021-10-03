@@ -68,6 +68,18 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   function openNavbar() {
+    document.body.style.overflowY = 'hidden';
+    const navOverflow = document.createElement('div');
+    navOverflow.className = 'DELETE_ME';
+    navOverflow.style.height = '100vh';
+    navOverflow.style.width = '100vw';
+    navOverflow.style.position = 'fixed';
+    navOverflow.style.top = 0;
+    navOverflow.style.left = 0;
+    navOverflow.style.opacity = 0;
+    navOverflow.style.transition = 'opacity 0.4s ease';
+    document.body.appendChild(navOverflow);
+    navOverflow.style.opacity = 1;
     isMenuActive = !isMenuActive;
     menuOpenButton.style.opacity = 0;
     setTimeout(() => {
@@ -79,6 +91,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   function closeNavbar() {
     if (window.innerWidth > 830) return;
+    const navOverflow = document.querySelector('.DELETE_ME');
+    navOverflow.style.opacity = 0;
+    setTimeout(() => navOverflow.remove());
+    document.body.style.overflowY = 'auto';
     isMenuActive = !isMenuActive;
     menuCloseButton.style.opacity = 0;
     setTimeout(() => {
