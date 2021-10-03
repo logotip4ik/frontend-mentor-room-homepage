@@ -1,4 +1,3 @@
-import './scss/main.scss';
 import Swiper from 'tiny-swiper';
 import SwiperAutoplay from 'tiny-swiper/lib/modules/autoPlay';
 import SwiperNavigation from 'tiny-swiper/lib/modules/navigation';
