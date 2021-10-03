@@ -66,6 +66,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }, ANIMATION_TIMING);
   });
 
+  window.addEventListener('resize', swiper.updateSize);
+
   function openNavbar() {
     document.body.style.overflowY = 'hidden';
     const navOverflow = document.createElement('div');
