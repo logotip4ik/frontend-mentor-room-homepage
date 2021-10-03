@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "tiny-swiper": "./tiny-swiper.js",
+    "tiny-swiper/lib/modules/autoPlay": "./tiny-swiper/lib/modules/autoPlay.js",
+    "tiny-swiper/lib/modules/navigation": "./tiny-swiper/lib/modules/navigation.js"
+  }
+}
