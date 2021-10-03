@@ -4,5 +4,8 @@
     "src": "/"
   },
   "plugins": [["@snowpack/plugin-sass"]],
-  "devOptions": { "open": "none", "port": 3000 }
+  "devOptions": { "open": "none", "port": 3000 },
+  "buildOptions": {
+    "baseUrl": "logotip4ik.github.io/frontend-mentor-room-homepage"
+  }
 }
