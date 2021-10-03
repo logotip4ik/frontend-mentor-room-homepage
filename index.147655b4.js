@@ -456,7 +456,6 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"i87aF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _mainScss = require("./scss/main.scss");
 var _tinySwiper = require("tiny-swiper");
 var _tinySwiperDefault = parcelHelpers.interopDefault(_tinySwiper);
 var _autoPlay = require("tiny-swiper/lib/modules/autoPlay");
@@ -511,7 +510,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
         },
         plugins: [_autoPlayDefault.default, _navigationDefault.default]
     });
-    console.log(swiper);
     swiper.on('scroll', ({ index  })=>{
         slideTextElement.style.opacity = 0;
         slideHeadingElement.style.opacity = 0;
@@ -522,6 +520,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
             slideHeadingElement.style.opacity = 1;
         }, ANIMATION_TIMING);
     });
+    window.addEventListener('resize', swiper.updateSize);
     function openNavbar() {
         document.body.style.overflowY = 'hidden';
         const navOverflow = document.createElement('div');
@@ -565,7 +564,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }
 });
 
-},{"tiny-swiper":"98Tzn","tiny-swiper/lib/modules/autoPlay":"8FVcX","tiny-swiper/lib/modules/navigation":"by3vK","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","./scss/main.scss":"bKzMy"}],"98Tzn":[function(require,module,exports) {
+},{"tiny-swiper":"98Tzn","tiny-swiper/lib/modules/autoPlay":"8FVcX","tiny-swiper/lib/modules/navigation":"by3vK","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"98Tzn":[function(require,module,exports) {
 !function(e, t) {
     "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = "undefined" != typeof globalThis ? globalThis : e || self).Swiper = t();
 }(this, function() {
@@ -1180,6 +1179,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"bKzMy":[function() {},{}]},["kAaS7","i87aF"], "i87aF", "parcelRequire484e")
+},{}]},["kAaS7","i87aF"], "i87aF", "parcelRequire484e")
 
 //# sourceMappingURL=index.147655b4.js.map
