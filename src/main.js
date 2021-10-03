@@ -77,9 +77,12 @@ window.addEventListener('DOMContentLoaded', () => {
     navOverflow.style.top = 0;
     navOverflow.style.left = 0;
     navOverflow.style.opacity = 0;
+    navOverflow.style.backgroundColor = 'hsla(0, 0%, 0%, 0.75)';
     navOverflow.style.transition = 'opacity 0.4s ease';
     document.body.appendChild(navOverflow);
-    navOverflow.style.opacity = 1;
+    setTimeout(() => {
+      navOverflow.style.opacity = 1;
+    }, 100);
     isMenuActive = !isMenuActive;
     menuOpenButton.style.opacity = 0;
     setTimeout(() => {
@@ -93,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 830) return;
     const navOverflow = document.querySelector('.DELETE_ME');
     navOverflow.style.opacity = 0;
-    setTimeout(() => navOverflow.remove());
+    setTimeout(() => navOverflow.remove(), ANIMATION_TIMING);
     document.body.style.overflowY = 'auto';
     isMenuActive = !isMenuActive;
     menuCloseButton.style.opacity = 0;
