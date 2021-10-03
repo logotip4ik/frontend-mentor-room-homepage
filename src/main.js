@@ -1,11 +1,9 @@
 import './scss/main.scss';
-// import Glide from '@glidejs/glide';
-// import '@glidejs/glide/dist/css/glide.core.min.css';
 import Swiper from 'tiny-swiper';
 import SwiperAutoplay from 'tiny-swiper/lib/modules/autoPlay';
 import SwiperNavigation from 'tiny-swiper/lib/modules/navigation';
 
-let currentSlide = 99999;
+let isMenuActive = false;
 const ANIMATION_TIMING = 400;
 const slideHeading = [
   'Discover innovative ways to decorate',
@@ -35,6 +33,14 @@ window.addEventListener('DOMContentLoaded', () => {
     '.main__section__text__heading',
   );
   const slideTextElement = document.querySelector('.main__section__text__info');
+  const menuOpenButton = document.querySelector('.main__nav__menu-icon');
+  const menuCloseButton = document.querySelector('.main__nav__close-icon');
+  const menuList = document.querySelector('.main__nav__list');
+  const menuListItems = document.querySelectorAll('.main__nav__list__item');
+
+  menuListItems.forEach((item) => item.addEventListener('click', closeNavbar));
+  menuOpenButton.addEventListener('click', openNavbar);
+  menuCloseButton.addEventListener('click', closeNavbar);
 
   const swiper = new Swiper('.swiper', {
     loop: true,
@@ -60,4 +66,26 @@ window.addEventListener('DOMContentLoaded', () => {
       slideHeadingElement.style.opacity = 1;
     }, ANIMATION_TIMING);
   });
+
+  function openNavbar() {
+    isMenuActive = !isMenuActive;
+    menuOpenButton.style.opacity = 0;
+    setTimeout(() => {
+      menuOpenButton.style.display = isMenuActive ? 'none' : 'block';
+      menuCloseButton.style.display = isMenuActive ? 'block' : 'none';
+      menuOpenButton.style.opacity = 1;
+    }, ANIMATION_TIMING);
+    menuList.classList.toggle('main__nav__list--active');
+  }
+  function closeNavbar() {
+    if (window.innerWidth > 830) return;
+    isMenuActive = !isMenuActive;
+    menuCloseButton.style.opacity = 0;
+    setTimeout(() => {
+      menuOpenButton.style.display = isMenuActive ? 'none' : 'block';
+      menuCloseButton.style.display = isMenuActive ? 'block' : 'none';
+      menuCloseButton.style.opacity = 1;
+    }, ANIMATION_TIMING);
+    menuList.classList.toggle('main__nav__list--active');
+  }
 });

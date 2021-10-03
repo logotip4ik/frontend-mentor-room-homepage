@@ -7,7 +7,8 @@
   height: 100vh;
 
   &__nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     justify-content: flex-start;
     align-items: center;
     gap: 5rem;
@@ -17,7 +18,52 @@
     left: 0;
     z-index: 999999;
 
+    // COMMENT: this height prevents navbar from jumping around when svg is transitioning
+    height: 112px;
+    width: min-content;
     padding: 4rem;
+    overflow-x: hidden;
+
+    @media screen and (max-width: 830px) {
+      grid-template-columns: 1fr auto 1fr;
+      justify-items: center;
+      width: 100%;
+    }
+
+    &__menu-icon {
+      display: none;
+      fill: var(--primary-white);
+
+      transition: fill 0.4s ease, opacity 0.4s ease;
+      cursor: pointer;
+
+      &--active {
+        position: relative;
+        z-index: 99999;
+        fill: var(--primary-dark-gray);
+      }
+
+      &:hover {
+        fill: var(--primary-dark-gray);
+        transition: none;
+      }
+
+      @media screen and (max-width: 830px) {
+        display: block;
+        justify-self: start;
+      }
+    }
+    &__close-icon {
+      display: none;
+      justify-self: start;
+
+      position: relative;
+      z-index: 9999;
+
+      cursor: pointer;
+      fill: var(--primary-dark-gray);
+      transition: opacity 0.4s ease;
+    }
 
     &__list {
       display: flex;
@@ -26,11 +72,32 @@
       gap: 3rem;
 
       list-style-type: none;
+      transition: transform 0.4s ease;
+
+      &--active {
+        transform: translate3d(0%, 0, 0) !important;
+      }
 
       &__item {
         color: var(--primary-white);
+        font-weight: 700;
         text-transform: lowercase;
         @include animation;
+
+        @media screen and (max-width: 830px) {
+          color: var(--primary-black);
+        }
+      }
+
+      @media screen and (max-width: 830px) {
+        justify-content: flex-end;
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+        padding-inline: 2rem;
+        background-color: var(--primary-white);
+        transform: translate3d(100%, 0, 0);
       }
     }
   }
@@ -48,6 +115,7 @@
 
       &__wrapper {
         height: 100%;
+        min-height: 55vh;
       }
 
       &__slide {
@@ -72,6 +140,11 @@
       padding-bottom: 10rem;
 
       position: relative;
+
+      @media screen and (max-width: 830px) {
+        padding-block: 8rem;
+        padding-block: clamp(5rem, 10vw, 10rem);
+      }
 
       &__heading {
         font-size: 3rem;
@@ -123,6 +196,12 @@
         bottom: 0;
         left: 0;
 
+        @media screen and (max-width: 830px) {
+          bottom: 100%;
+          left: unset;
+          right: 0;
+        }
+
         &__arrow {
           padding: 2.75rem;
           border-radius: 0;
@@ -130,8 +209,13 @@
           opacity: 1;
           background-color: var(--primary-black);
 
+          cursor: pointer;
           transform: none;
           transition: background-color 0.4s ease;
+
+          @media screen and (max-width: 830px) {
+            padding: 2.25rem;
+          }
 
           &:hover {
             opacity: 1;
@@ -167,10 +251,19 @@
         line-height: 1.75;
         letter-spacing: 1px;
       }
+
+      @media screen and (max-width: 830px) {
+        padding-inline: 2rem;
+      }
     }
 
     &--about {
       grid-template-columns: auto 42.24% auto;
+    }
+
+    @media screen and (max-width: 830px) {
+      grid-template-columns: 100%;
+      grid-template-rows: 5% 35% auto;
     }
   }
 }
